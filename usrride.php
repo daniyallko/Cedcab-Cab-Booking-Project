@@ -30,7 +30,7 @@ include('ussidebar.php');
     <button class="nav-link btn btn-light " id="ernridu">Total Spending</button>
   </nav>
 
-<div class="row p-2">
+<div id="drp" class="row p-2">
 <div class="mr-2" id="srt">
   <label for="sorting">FILTER BY</label>
   <select name="sortu" id="sortu">
@@ -43,7 +43,7 @@ include('ussidebar.php');
   <div class="mr-2" id="cfilt" >
   <label for="filter">FILTER BY CAB</label>
   <select name="cfil" id="cfil">
-  <option value="" selected hidden disabled>FILTER BY</option>
+  <option value="" selected>NONE</option>
   <option value="CedMini">CedMini</option>
   <option value="CedMicro">CedMicro</option>
   <option value="CedRoyal">CedRoyal</option>

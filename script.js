@@ -157,6 +157,7 @@ $("#allrid").click(function(){
     $('#comr').hide();
     $('#ernr').hide();
     $('#srt').show();
+    $('#drp').show();
 });
 $("#penrid").click(function(){
     $('#penr').show();
@@ -165,6 +166,7 @@ $("#penrid").click(function(){
     $('#comr').hide();
     $('#ernr').hide();
     $('#srt').show();
+    $('#drp').show();
 });
 $("#canrid").click(function(){
     $('#canr').show();
@@ -173,6 +175,7 @@ $("#canrid").click(function(){
     $('#comr').hide();
     $('#ernr').hide();
     $('#srt').show();
+    $('#drp').show();
 });
 $("#comrid").click(function(){
     $('#comr').show();
@@ -181,6 +184,7 @@ $("#comrid").click(function(){
     $('#allr').hide();
     $('#ernr').hide();
     $('#srt').show();
+    $('#drp').show();
 });
 $("#ernrid").click(function(){
     $('#ernr').show();
@@ -189,6 +193,7 @@ $("#ernrid").click(function(){
     $('#allr').hide();
     $('#comr').hide();
     $('#srt').hide();
+    $('#drp').hide();
 });
 
 
@@ -197,12 +202,14 @@ $('#penru').hide();
 $('#canru').hide();
 $('#comru').hide();
 $('#ernru').hide();
+$('#drp').show();
 $("#allridu").click(function(){
     $('#allru').show();
     $('#penru').hide();
     $('#canru').hide();
     $('#comru').hide();
     $('#ernru').hide();
+    $('#drp').show();
 });
 $("#penridu").click(function(){
     $('#penru').show();
@@ -210,6 +217,7 @@ $("#penridu").click(function(){
     $('#canru').hide();
     $('#comru').hide();
     $('#ernru').hide();
+    $('#drp').show();
 });
 $("#canridu").click(function(){
     $('#canru').show();
@@ -217,6 +225,7 @@ $("#canridu").click(function(){
     $('#allru').hide();
     $('#comru').hide();
     $('#ernru').hide();
+    $('#drp').show();
 });
 $("#comridu").click(function(){
     $('#comru').show();
@@ -224,6 +233,7 @@ $("#comridu").click(function(){
     $('#canru').hide();
     $('#allru').hide();
     $('#ernru').hide();
+    $('#drp').show();
 });
 $("#ernridu").click(function(){
     $('#ernru').show();
@@ -231,6 +241,8 @@ $("#ernridu").click(function(){
     $('#canru').hide();
     $('#allru').hide();
     $('#comru').hide();
+    $('#drp').hide();
+
 });
 $('#edi').show();
 $('#cpaa').hide();

@@ -42,7 +42,7 @@ if(isset($_GET['action']))
   </nav>
 
 
-  <div class="row">
+  <div id="drp" class="row">
   <div class="mr-2" id="srt">
   <label for="filter">FILTER BY</label>
   <select name="sort" id="sort">
@@ -55,7 +55,7 @@ if(isset($_GET['action']))
   <div class="mr-2" id="cfilt">
   <label for="filter">FILTER BY CAB</label>
   <select name="cfil" id="cfil">
-  <option value="" selected hidden disabled>FILTER BY</option>
+  <option value="" selected>NONE</option>
   <option value="CedMini">CedMini</option>
   <option value="CedMicro">CedMicro</option>
   <option value="CedRoyal">CedRoyal</option>

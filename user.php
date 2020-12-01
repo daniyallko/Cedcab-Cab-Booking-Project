@@ -167,6 +167,7 @@ class user{
         $sql = "UPDATE user SET name='".$name."', mobile='".$mobile."' WHERE user_id=$ida";
             
             if ($conn->query($sql) === true) {
+                $_SESSION['userdata']['username'] = $name;
                 echo '<p class="bg-success text-center">Profile Edited Successful</p>';
             }
              else {

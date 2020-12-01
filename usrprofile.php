@@ -3,16 +3,7 @@ session_start();
 
 include('user.php'); 
 
-if (isset($_POST['edit']))
-{
-    $name = isset($_POST['name'])?$_POST['name']:'';
-    $mobile = isset($_POST['mobile'])?$_POST['mobile']:'';
-    $ida = isset($_POST['id'])?$_POST['id']:'';
-    $_SESSION['userdata']['name'] = $name;
-    $adm = new user();
-    $admc = new dbcon();
-    $show = $adm->uprof($name,$mobile,$ida,$admc->conn);
-}
+
 
 if (isset($_POST['change']))
 {
@@ -34,8 +25,19 @@ if (isset($_POST['change']))
     {
         $na=$val['name'];
         $mo=$val['mobile'];
-
+        
     }
+
+    if (isset($_POST['edit']))
+{
+    $name = isset($_POST['name'])?$_POST['name']:'';
+    $mobile = isset($_POST['mobile'])?$_POST['mobile']:'';
+    $ida = isset($_POST['id'])?$_POST['id']:'';
+    
+    $adm = new user();
+    $admc = new dbcon();
+    $show = $adm->uprof($name,$mobile,$ida,$admc->conn);
+}
 include('header.php');
 
 include('navs.php');
