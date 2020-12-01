@@ -1,0 +1,120 @@
+#bg{
+    background-image: url(cab.jpg);
+    background-repeat: no-repeat;
+    
+}
+.green{
+    color: #CDDC39 ;
+}
+.gree{
+    background-color:  #CDDC39;
+    color: white;
+    border-radius: 5px;
+}
+h1 , h5, .logo{
+    color: white;
+}
+#errors{
+    color: red;
+}
+#pas{
+    display: none;
+}
+.nos{
+    color: #CDDC39;
+}
+.box{
+    background-color: #F5F5F5;
+    border-radius: 10px;
+   
+}
+.green{
+    background-color: #CDDC39;
+    color: black;
+}
+hr{
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+.tup{
+    border-radius: 20px;
+    padding: 0px 5px;
+    border: none;
+}
+label{
+    font-size: 10px;
+    margin: auto;
+    padding: auto;
+    color: grey;
+}
+.feilds{
+    background-color: #E2E2E2;
+    border-radius: 5px;
+    padding: 5px;
+    margin: .5px;
+    margin-bottom: 10px;
+}
+.btn:hover , .btn:active{
+    background-color: #CDDC39;
+}
+.arro{
+    -webkit-appearance: none;
+}
+
+
+.sidebar {
+    
+    background-color: #f1f1f1;
+    height: 1000px;
+    overflow: auto;
+  }
+  
+  .sidebar a {
+    display: block;
+    color: black;
+    padding: 16px;
+    text-decoration: none;
+  }
+   
+  .sidebar a.active {
+    background-color: #CDDC39;
+    color: white;
+  }
+  
+  .sidebar a:hover:not(.active) {
+    background-color: grey;
+    color: white;
+  }
+  
+  
+  @media screen and (max-width: 700px) {
+    .sidebar {
+      width: 100%;
+      height: auto;
+      position: relative;
+    }
+    .sidebar a {float: left;}
+    div.content {margin-left: 0;}
+  }
+  
+  @media screen and (max-width: 400px) {
+    .sidebar a {
+      text-align: center;
+      float: none;
+    }
+  }
+  .mai{
+      width: 70%;
+      background-color: aqua;
+      height: 100%;
+      float: right;
+      margin-right: 200px;
+  }
+
+  .ap{
+      
+      border-right: none;
+      
+  }
