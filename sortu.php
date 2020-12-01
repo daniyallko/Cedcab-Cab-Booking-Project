@@ -9,12 +9,13 @@ $id = $_SESSION['userdata']['user_id'];
             
             <table id='tbl' class="container-fluid col-lg-10 mr-lg-2 table table-responsive table-hover table-bordered table-striped">
                 <thead>
-                <th onclick="sortTable(0)">Ride Date</th>
+                <th onclick="sortTable(0,tbl)">Ride Date ⇩</th>
                 <th>Pickup Point</th>
                 <th>Drop Point</th>
-                <th onclick="sortTablen(3)">Distance</th>
-                <th onclick="sortTablen(4)">Luggage</th>
-                <th onclick="sortTablen(5)">Ride Fare</th>
+                <th>Cab Type</th>
+                <th onclick="sortTablen(4,tbl)">Distance ⇩</th>
+                <th onclick="sortTablen(5,tbl)">Luggage ⇩</th>
+                <th onclick="sortTablen(6,tbl)">Ride Fare ⇩</th>
                 <th>Status</th>
                 <th>User id</th>
                 <th>Cancel</th>
@@ -28,7 +29,7 @@ $id = $_SESSION['userdata']['user_id'];
                     $show = $adm->sort($sot,$id,$admc->conn);
                     foreach($show as $key=>$val)
                     {
-                    echo "<tr><td>".$val['ride_date']."</td><td>".$val['from_distance']."</td><td>".$val['to_distance']."</td><td>".$val['total_distance']." Km</td><td>".$val['luggage']." Kg</td><td>".$val['total_fare']."</td><td>";
+                    echo "<tr><td>".$val['ride_date']."</td><td>".$val['from_distance']."</td><td>".$val['to_distance']."</td><td>".$val['cab_type']."</td><td>".$val['total_distance']." Km</td><td>".$val['luggage']." Kg</td><td>".$val['total_fare']."</td><td>";
                     if($val['status']==1)
                     {
                         echo "Pending</td>";

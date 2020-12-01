@@ -63,7 +63,9 @@ label{
     -webkit-appearance: none;
 }
 
-
+th{
+    cursor: pointer;
+}
 .sidebar {
     
     background-color: #f1f1f1;

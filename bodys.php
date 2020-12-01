@@ -76,10 +76,14 @@ if(isset($_SESSION['book'])){
                 <input type="button" class="btn green btn-primary btn-lg btn-block" id="button4" name="submit" value="Calculate Fare">
             </div>
             <div class="form-group ">
-            <button type="button" class="btn btn-success btn-lg btn-block " id="rbook" name="rbook" >Ride Booked Successfully</button>
+            <a  class="btn btn-success btn-lg btn-block disabled" id="rbook" name="rbook" >Ride Booked Successfully</a>
                 <input type="submit" class="btn green btn-primary btn-lg btn-block" id="book" name="book" value="Book Now">
             </div>
         </form>
     </div>
     </section>
   </div>
+  <?php if(isset($_SESSION['book']))
+  {
+    unset($_SESSION['book']);
+    } ?>

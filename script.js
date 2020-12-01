@@ -111,32 +111,6 @@ $(document).ready(function() {
             }
         });
     });
-});
-// $("#book1").click(function(e){
-//     // e.preventDefault();
-//     // $pickup=$("#pickup").val();
-//     // $drop=$("#drop").val();
-//     // $cabtype=$("#cabtype").val();
-//     // $lugg=$("#lugg").val();
-//     // $.ajax({
-//     //     url: 'bodys.php',
-//     //     type: 'post',
-//     //     data:{
-//     //         pickup : $pickup,
-//     //         drop : $drop,
-//     //         cabtype : $cabtype,
-//     //         lugg : $lugg
-//     //     },
-//     //     success: function (result) {
-            
-//     //     },
-//     //     error: function () {
-  
-//     //     }
-//     // });
-//     alert("Please Login to BOOK a ride");
-//     window.location.href = "login.php";
-// });
 
 
 $("#book").click(function(e){
@@ -420,4 +394,4 @@ function sortTablen(n,dd) {
           });
       });
 
-
+    });
