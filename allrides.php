@@ -40,7 +40,10 @@ if(isset($_GET['action']))
     <button class="nav-link btn btn-light " id="comrid">Completed Rides</button>
     <button class="nav-link btn btn-light " id="ernrid">Total Earning</button>
   </nav>
-  <div id="srt">
+
+
+  <div class="row">
+  <div class="mr-2" id="srt">
   <label for="filter">FILTER BY</label>
   <select name="sort" id="sort">
   <option value="" selected hidden disabled>FILTER BY</option>
@@ -49,7 +52,7 @@ if(isset($_GET['action']))
   </select>
   </div>
 
-  <div id="cfilt">
+  <div class="mr-2" id="cfilt">
   <label for="filter">FILTER BY CAB</label>
   <select name="cfil" id="cfil">
   <option value="" selected hidden disabled>FILTER BY</option>
@@ -59,6 +62,9 @@ if(isset($_GET['action']))
   <option value="CedSUV">CedSUV</option>
   </select>
   </div>
+  
+  </div>
+ 
   
 
 <div id="allr">

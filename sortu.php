@@ -23,7 +23,7 @@ $id = $_SESSION['userdata']['user_id'];
 
                 <?php
                 
-                    $adm = new adminwrk();
+                    $adm = new user();
                     $admc = new dbcon();
                     $show = $adm->sort($sot,$id,$admc->conn);
                     foreach($show as $key=>$val)

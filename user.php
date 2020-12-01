@@ -247,6 +247,30 @@ class user{
     
         return $count;
     }
+
+    function sort($sot,$id,$conn)
+    {
+       if($sot=='week'){
+        $sql="SELECT * FROM ride WHERE ride_date > DATE_SUB(NOW(), INTERVAL 7 DAY) AND customer_user_id='$id'";
+        $result = $conn->query($sql);
+        $appr=array();
+        while($row = $result->fetch_assoc()){
+            array_push($appr, $row);
+        }
+        return $appr;
+       }
+       elseif($sot=='month')
+       {
+        $sql="SELECT * FROM ride WHERE ride_date > DATE_SUB(NOW(), INTERVAL 30 DAY) AND customer_user_id='$id'";
+        $result = $conn->query($sql);
+        $appr=array();
+        while($row = $result->fetch_assoc()){
+            array_push($appr, $row);
+        }
+        return $appr;
+       }
+        
+    }
 }
 
 ?>

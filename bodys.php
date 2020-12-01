@@ -23,7 +23,7 @@ if(isset($_SESSION['book'])){
                 <label class="col-sm-3"  for="pickup">PICKUP</label>
                 <select  class="form-control-plaintext col-sm-9 arro choose" id="pickup">
                 <option <?php if(isset($id)){ echo "value= ".$p; } ?> hidden><?php if(isset($p)){ echo $p; } ?></option>
-                  <option value="" class="text-secondary"  disabled hidden>Current Location</option>
+                  <option value="" class="text-secondary" selected disabled hidden>Current Location</option>
                   <?php
                   $adm = new adminwrk();
                   $admc = new dbcon();
