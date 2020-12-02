@@ -283,6 +283,18 @@ class adminwrk
         }
         return $appr;
        }
+       elseif($sot=='none')
+       {
+        $sql = "SELECT * FROM ride";
+        $result = $conn->query($sql);
+        $count = $result->num_rows;
+        $appr=array();
+        while($row = $result->fetch_assoc()){
+            array_push($appr, $row);
+        }
+        
+        return $appr;
+       }
         
     }
     
@@ -305,6 +317,18 @@ class adminwrk
         while($row = $result->fetch_assoc()){
             array_push($appr, $row);
         }
+        return $appr;
+       }
+       elseif($sot=='none')
+       {
+        $sql = "SELECT * FROM ride WHERE customer_user_id='$id'";
+        $result = $conn->query($sql);
+        $count = $result->num_rows;
+        $appr=array();
+        while($row = $result->fetch_assoc()){
+            array_push($appr, $row);
+        }
+        
         return $appr;
        }
         

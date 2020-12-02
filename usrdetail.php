@@ -59,6 +59,7 @@ include('adsidebar.php');
   <label for="sorting">FILTER BY</label>
   <select name="sortud" id="sortud">
   <option value="" selected hidden disabled>FILTER BY</option>
+  <option value="none">None</option>
   <option value="week">Week</option>
   <option value="month">Month</option>
   </select>

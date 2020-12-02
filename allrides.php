@@ -47,6 +47,7 @@ if(isset($_GET['action']))
   <label for="filter">FILTER BY</label>
   <select name="sort" id="sort">
   <option value="" selected hidden disabled>FILTER BY</option>
+  <option value="none">None</option>
   <option value="week">Week</option>
   <option value="month">Month</option>
   </select>
