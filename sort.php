@@ -23,6 +23,7 @@ $id = $_SESSION['userdata']['user_id'];
                 <th>User id</th>
                 <th>Cancel</th>
                 <th>Approve</th>
+                <th>Invoice</th>
                 <th>Delete</th>
                 </thead>
                 <tbody id='tblc'>
@@ -60,9 +61,15 @@ $id = $_SESSION['userdata']['user_id'];
                     
                         echo "<td><a class='btn btn-success disabled' >Approve</a></td>";
                     }
-                    echo "<td><a class='btn btn-danger' href='allrides.php?action=no&id=".$val['ride_id']."'>Delete</a></td></tr></tr>";
+                    if($val['status']==2)
+                    {
+                        echo "<td><a class='btn btn-info' href='invoice.php?id=".$val['ride_id']."'>Invoice</a></td>";
                     }
-                
+                    else{
+                        echo "<td><a class='btn btn-info disabled'>Invoice</a></td>";
+                    }
+                    echo "<td><a class='btn btn-danger' href='allrides.php?action=no&id=".$val['ride_id']."'>Delete</a></td></tr>";
+                    }
               echo  '</tbody>
 
             </table>';

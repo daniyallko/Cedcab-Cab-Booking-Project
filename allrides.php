@@ -52,6 +52,16 @@ if(isset($_GET['action']))
   </select>
   </div>
 
+  <div class="mr-2" id="cstats">
+  <label for="stat">Booking Status</label>
+  <select name="cstat" id="cstat">
+  <option value="" selected>All</option>
+  <option value="Pending">Pending</option>
+  <option value="Canceled">Canceled</option>
+  <option value="Completed">Completed</option>
+  </select>
+  </div>
+
   <div class="mr-2" id="cfilt">
   <label for="filter">FILTER BY CAB</label>
   <select name="cfil" id="cfil">
@@ -62,11 +72,9 @@ if(isset($_GET['action']))
   <option value="CedSUV">CedSUV</option>
   </select>
   </div>
-  
   </div>
- 
   
-
+  
 <div id="allr">
 
   <h3 class="text-center">All Rides</h3>

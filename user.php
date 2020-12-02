@@ -151,17 +151,6 @@ class user{
         return $appr;
     }
 
-    function prof($id,$conn)
-    {
-        $sql = "SELECT * FROM user WHERE user_id='$id'";
-        $result = $conn->query($sql);
-        $appr=array();
-        while($row = $result->fetch_assoc()){
-            array_push($appr, $row);
-        }
-        return $appr;
-    }
-
     function uprof($name,$mobile,$ida,$conn)
     {
         $sql = "UPDATE user SET name='".$name."', mobile='".$mobile."' WHERE user_id=$ida";
@@ -175,6 +164,18 @@ class user{
 
             }
     }
+
+    function prof($id,$conn)
+    {
+        $sql = "SELECT * FROM user WHERE user_id='$id'";
+        $result = $conn->query($sql);
+        $appr=array();
+        while($row = $result->fetch_assoc()){
+            array_push($appr, $row);
+        }
+        return $appr;
+    }
+
 
     function changep($old,$new,$rnew,$idp,$conn)
     {
@@ -271,6 +272,27 @@ class user{
         return $appr;
        }
         
+    }
+    function iallride($id,$conn)
+    {
+        $sql = "SELECT * FROM ride WHERE ride_id='$id'";
+        $result = $conn->query($sql);
+        $appr=array();
+        while($row = $result->fetch_assoc()){
+            array_push($appr, $row);
+        }
+        return $appr;
+    }
+
+    function ialluser($cid,$conn)
+    {
+        $sql = "SELECT * FROM user WHERE user_id='$cid'";
+        $result = $conn->query($sql);
+        $appr=array();
+        while($row = $result->fetch_assoc()){
+            array_push($appr, $row);
+        }
+        return $appr;
     }
 }
 

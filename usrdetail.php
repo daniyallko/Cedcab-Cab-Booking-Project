@@ -2,6 +2,7 @@
 
 include('adhead.php');
 $id= $_GET['id'];
+$_SESSION['temp'] = $id;
 if(isset($_GET['action']))
 {
     $d=$_GET['d'];
@@ -33,7 +34,15 @@ if(isset($_GET['action']))
 
 
 include('adsidebar.php');
-
+    $adm = new adminwrk();
+    $admc = new dbcon();
+    $usr = $adm->ialluser($id,$admc->conn);
+        foreach($usr as $key1=>$val1)
+        {
+            $name = $val1['name'];
+            $email = $val1['user_name'];
+            $mob = $val1['mobile'];
+        }
 
 ?>
 <nav class="nav nav-pills nav-justified col-sm-10">
@@ -48,10 +57,20 @@ include('adsidebar.php');
 
 <div class="mr-2" id="srt">
   <label for="sorting">FILTER BY</label>
-  <select name="sortu" id="sortu">
+  <select name="sortud" id="sortud">
   <option value="" selected hidden disabled>FILTER BY</option>
   <option value="week">Week</option>
   <option value="month">Month</option>
+  </select>
+  </div>
+
+  <div class="mr-2" id="cstats">
+  <label for="stat">Booking Status</label>
+  <select name="cstat" id="cstat">
+  <option value="" selected>All</option>
+  <option value="Pending">Pending</option>
+  <option value="Canceled">Canceled</option>
+  <option value="Completed">Completed</option>
   </select>
   </div>
 
@@ -67,7 +86,11 @@ include('adsidebar.php');
   </div>
 </div>
   
-
+<div >
+<label class=" ">Name : <?php echo $name; ?></label><br>
+<label class="">E-mail : <?php echo $email; ?></label><br>
+<label class="">Mobile : <?php echo $mob; ?></label>
+</div>
 <div id="allru">
 
   <h3 class="text-center">All Rides</h3>

@@ -40,6 +40,16 @@ include('ussidebar.php');
   </select>
   </div>
 
+  <div class="mr-2" id="cstats">
+  <label for="stat">Booking Status</label>
+  <select name="cstat" id="cstat">
+  <option value="" selected>All</option>
+  <option value="Pending">Pending</option>
+  <option value="Canceled">Canceled</option>
+  <option value="Completed">Completed</option>
+  </select>
+  </div>
+
   <div class="mr-2" id="cfilt" >
   <label for="filter">FILTER BY CAB</label>
   <select name="cfil" id="cfil">
@@ -70,6 +80,7 @@ include('ussidebar.php');
             <th>Status</th>
             <th>User id</th>
             <th>Cancel</th>
+            <th>Invoice</th>
         </thead>
         <tbody id="tblc">
         <?php 
@@ -101,6 +112,13 @@ include('ussidebar.php');
               }
               else{
                 echo "<td><a class='btn btn-warning disabled' >Cancel</a></td>";
+              }
+              if($val['status']==2)
+              {
+                echo "<td><a class='btn btn-info' href='invoiceu.php?id=".$val['ride_id']."'>Invoice</a></td>";
+              }
+              else{
+                echo "<td><a class='btn btn-info disabled'>Invoice</a></td>";
               }
             }
         ?>
@@ -207,6 +225,7 @@ include('ussidebar.php');
             <th onclick="sortTable(6,tbl4)">Ride Fare ⇩</th>
             <th>Status</th>
             <th>User id</th>
+            <th>Invoice</th>
         </thead>
         <tbody id="tbl4c">
         <?php 
@@ -221,6 +240,8 @@ include('ussidebar.php');
                 echo "Completed</td>";
               
                 echo  "<td>".$val['customer_user_id']."</td>"; 
+
+                echo "<td><a class='btn btn-info' href='invoiceu.php?id=".$val['ride_id']."'>Invoice</a></td>";
 
             }
         ?>

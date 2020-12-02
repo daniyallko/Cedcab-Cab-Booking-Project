@@ -53,7 +53,7 @@ include('adsidebar.php'); ?>
     <div class="row pt-4 pl-lg-5">
     
     <div class="col-sm-6 col-lg-3 ">
-        <div class="card bg-danger text-center">
+        <div class="card bg-success text-center">
           <div class="card-body">
             <h5 class="card-title">Cancelled Rides</h5>
             <p class="card-text font-weight-bold text-dark h1">
@@ -66,7 +66,7 @@ include('adsidebar.php'); ?>
       </div>
 
       <div class="col-sm-6 col-lg-3 ">
-        <div class="card bg-success text-center">
+        <div class="card bg-warning text-center">
           <div class="card-body">
             <h5 class="card-title">Total Earning</h5>
             <p class="card-text font-weight-bold text-dark h1">
@@ -79,7 +79,7 @@ include('adsidebar.php'); ?>
       </div>
 
       <div class="col-sm-6 col-lg-3 ">
-        <div class="card bg-success text-center">
+        <div class="card bg-info text-center">
           <div class="card-body">
             <h5 class="card-title">Total Users</h5>
             <p class="card-text font-weight-bold text-dark h1">
@@ -117,6 +117,19 @@ include('adsidebar.php'); ?>
             $pu = $adm->pcountuser($admc->conn);
              echo $pu; ?></p>
             <a href="aprove.php" class="btn btn-primary green">Go To</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-6 col-lg-3 ">
+        <div class="card bg-info text-center">
+          <div class="card-body">
+            <h5 class="card-title">All Locations</h5>
+            <p class="card-text font-weight-bold text-dark h1">
+            <?php 
+            $lc = $adm->countloc($admc->conn);
+             echo $lc; ?></p>
+            <a href="addlocation.php" class="btn btn-primary green">Go To</a>
           </div>
         </div>
       </div>

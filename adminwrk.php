@@ -285,6 +285,30 @@ class adminwrk
        }
         
     }
+    
+    function sortu($sot,$id,$conn)
+    {
+       if($sot=='week'){
+        $sql="SELECT * FROM ride WHERE ride_date > DATE_SUB(NOW(), INTERVAL 7 DAY) AND customer_user_id='$id'";
+        $result = $conn->query($sql);
+        $appr=array();
+        while($row = $result->fetch_assoc()){
+            array_push($appr, $row);
+        }
+        return $appr;
+       }
+       elseif($sot=='month')
+       {
+        $sql="SELECT * FROM ride WHERE ride_date > DATE_SUB(NOW(), INTERVAL 30 DAY) AND customer_user_id='$id'";
+        $result = $conn->query($sql);
+        $appr=array();
+        while($row = $result->fetch_assoc()){
+            array_push($appr, $row);
+        }
+        return $appr;
+       }
+        
+    }
 
     function countride($conn)
     {
@@ -343,6 +367,15 @@ class adminwrk
     function pcountuser($conn)
     {
         $sql = "SELECT * FROM user WHERE isblock=0";
+        $result = $conn->query($sql);
+        $count = $result->num_rows;
+    
+        return $count;
+    }
+
+    function countloc($conn)
+    {
+        $sql = "SELECT * FROM location";
         $result = $conn->query($sql);
         $count = $result->num_rows;
     

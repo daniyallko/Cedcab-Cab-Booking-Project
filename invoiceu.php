@@ -1,11 +1,13 @@
 <?php
-
-include('adhead.php');
-if($_SESSION['userdata']['is_admin']==1){
-include('adsidebar.php');
+session_start();
+include('header.php');
+include('user.php');
+include('navs.php');
+if($_SESSION['userdata']['is_admin']==0){
+include('ussidebar.php');
 
             $id=$_GET['id'];
-            $adm = new adminwrk();
+            $adm = new user();
             $admc = new dbcon();
             $shor = $adm->iallride($id,$admc->conn);
             foreach($shor as $key=>$val)
@@ -121,13 +123,12 @@ include('adsidebar.php');
     .rtl table tr td:nth-child(2) {
         text-align: left;
     }
-    
     </style> -->
 </head>
 
 <body>
 <div id="pbox">
-    <div class="invoice-box" >
+    <div class="invoice-box">
         <table cellpadding="0" cellspacing="0">
             <tr class="top">
                 <td colspan="2">
@@ -230,6 +231,7 @@ include('adsidebar.php');
     </div>
     </div>
     <button id="prnt">Print</button>
+
     
 
 
@@ -242,4 +244,3 @@ else{
     echo '<h1 class="text-center text-weight-bold text-dark">You Are not Authorised</h1>';
   }
  include('adfoot.php'); ?>
- 

@@ -111,6 +111,7 @@ $(document).ready(function() {
             }
         });
     });
+});
 
 
 $("#book").click(function(e){
@@ -156,6 +157,7 @@ $("#allrid").click(function(){
     $('#canr').hide();
     $('#comr').hide();
     $('#ernr').hide();
+    $('#cstats').show();
     $('#srt').show();
     $('#drp').show();
 });
@@ -165,7 +167,8 @@ $("#penrid").click(function(){
     $('#canr').hide();
     $('#comr').hide();
     $('#ernr').hide();
-    $('#srt').show();
+    $('#cstats').hide();
+    $('#srt').hide();
     $('#drp').show();
 });
 $("#canrid").click(function(){
@@ -174,7 +177,8 @@ $("#canrid").click(function(){
     $('#allr').hide();
     $('#comr').hide();
     $('#ernr').hide();
-    $('#srt').show();
+    $('#cstats').hide();
+    $('#srt').hide();
     $('#drp').show();
 });
 $("#comrid").click(function(){
@@ -183,7 +187,8 @@ $("#comrid").click(function(){
     $('#canr').hide();
     $('#allr').hide();
     $('#ernr').hide();
-    $('#srt').show();
+    $('#cstats').hide();
+    $('#srt').hide();
     $('#drp').show();
 });
 $("#ernrid").click(function(){
@@ -209,6 +214,8 @@ $("#allridu").click(function(){
     $('#canru').hide();
     $('#comru').hide();
     $('#ernru').hide();
+    $('#srt').show();
+    $('#cstats').show();
     $('#drp').show();
 });
 $("#penridu").click(function(){
@@ -217,6 +224,8 @@ $("#penridu").click(function(){
     $('#canru').hide();
     $('#comru').hide();
     $('#ernru').hide();
+    $('#srt').hide();
+    $('#cstats').hide();
     $('#drp').show();
 });
 $("#canridu").click(function(){
@@ -225,6 +234,8 @@ $("#canridu").click(function(){
     $('#allru').hide();
     $('#comru').hide();
     $('#ernru').hide();
+    $('#srt').hide();
+    $('#cstats').hide();
     $('#drp').show();
 });
 $("#comridu").click(function(){
@@ -233,6 +244,8 @@ $("#comridu").click(function(){
     $('#canru').hide();
     $('#allru').hide();
     $('#ernru').hide();
+    $('#srt').hide();
+    $('#cstats').hide();
     $('#drp').show();
 });
 $("#ernridu").click(function(){
@@ -280,6 +293,25 @@ $('#sortu').change(function()
 
     $.ajax({
         url: 'sortu.php',
+        type: 'post',
+        data:{
+            by: $by
+        },
+        
+        success: function (result12) {
+        
+          $('#allru').html(result12);
+          
+        },
+    });
+});
+
+$('#sortud').change(function()
+{
+    $by=$(this).val();
+
+    $.ajax({
+        url: 'sortud.php',
         type: 'post',
         data:{
             by: $by
@@ -406,4 +438,36 @@ function sortTablen(n,dd) {
           });
       });
 
-    });
+      $("#cstat").change(function() {
+        var value = $(this).val().toLowerCase();
+        $("#tblc tr").filter(function() {
+          $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+        });
+        $("#tbl1c tr").filter(function() {
+            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+          });
+          $("#tbl2c tr").filter(function() {
+            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+          });
+          $("#tbl3c tr").filter(function() {
+            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+          });
+          $("#tbl4c tr").filter(function() {
+            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+          });
+      });
+
+      $(function() {
+        $("#prnt").click(function() {
+
+            printDiv("pbox");
+
+            function printDiv(id) {
+                var printContents = document.getElementById(id).innerHTML;
+                var originalContents = document.body.innerHTML;
+                document.body.innerHTML = printContents;
+                window.print();
+                location.reload();
+            }
+        })
+    })

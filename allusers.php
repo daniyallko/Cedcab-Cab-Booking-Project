@@ -51,6 +51,7 @@ if(isset($_GET['action']))
             <th onclick='sortTablen(4,tbl)'>Mobile ⇩</th>
             <th>Approve/Block</th>
             <th>Delete</th>
+            <th>Details</th>
         </thead>
         <tbody>
         <?php 
