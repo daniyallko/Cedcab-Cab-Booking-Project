@@ -10,6 +10,14 @@ $(document).ready(function() {
           return false;
         }
     });
+
+    $("#mobile").bind("keypress", function (e) {
+      var keyCode = e.which ? e.which : e.keyCode
+      if (!(keyCode >= 48 && keyCode <= 57)) {
+        return false;
+      }
+  });
+
     $('#err').hide();
      $cabtyp = $('#cabtype'), $lug = $('#lugg');
         $cabtyp.change(function () {

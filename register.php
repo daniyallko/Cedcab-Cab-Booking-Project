@@ -62,7 +62,7 @@
       
         <div class="form-group  row feilds ">
         <label class="col-sm-2">MOBILE</label>
-            <input name="mobile" for="mobile" type="number" class="form-control-plaintext col-sm-10 arro" id="mobile" placeholder="Enter your Mobile Number" required>
+            <input name="mobile" for="mobile" type="text" class="form-control-plaintext col-sm-10 arro" maxlength="10" id="mobile"  placeholder="Enter your Mobile Number" required>
         </div>
       
             <div class="form-group ">

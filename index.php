@@ -1,6 +1,9 @@
 <?php
 session_start();
-
+if(isset($_SESSION['book']))
+{
+    unset($_SESSION['book']);
+}
 if(isset($_POST['book']))
 { 
    $lugg = isset($_POST['lugg'])?$_POST['lugg']:0;

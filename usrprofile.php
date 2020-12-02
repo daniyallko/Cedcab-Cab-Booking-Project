@@ -60,7 +60,7 @@ include('ussidebar.php');
     </div>
     <div class="form-group  row feilds ">
     <label class="col-sm-2" for="mobile">Mobile</label>
-    <input class="form-control-plaintext col-sm-10 " type="number" name="mobile" id="mobile" placeholder="Enter Mobile Number" <?php if(isset($mo)){echo "value=".$mo ;} ?> required>
+    <input class="form-control-plaintext col-sm-10 " type="text" name="mobile" id="mobile" maxlength="10" placeholder="Enter Mobile Number" <?php if(isset($mo)){echo "value=".$mo ;} ?> required>
     </div>
     <input type="hidden" name="id" id="id" <?php if(isset($id)){ echo "value= ".$id; } ?>>
     <div class="form-group ">
