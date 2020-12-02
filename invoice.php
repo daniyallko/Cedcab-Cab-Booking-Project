@@ -231,11 +231,6 @@ include('adsidebar.php');
     </div>
     <button id="prnt">Print</button>
     
-
-
-
-
-
 <?php 
 }
 else{

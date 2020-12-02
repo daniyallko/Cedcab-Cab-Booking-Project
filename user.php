@@ -18,6 +18,8 @@ class user{
     function login($user_name,$password,$conn)
     {
         $errors = array();
+
+        
         if(sizeof($errors)==0 )
         {
             $password = md5($password);
@@ -66,6 +68,16 @@ class user{
             $errors[] = array('input'=>'password','msg'=>'password should be same');
             echo '<p class="bg-danger text-center">password should be same</p>';
         }
+
+        if ($password == $password2) {
+            $sql = "SELECT * from user WHERE user_name like '$username'";
+            $result = $conn->query($sql);
+            if ($result->num_rows > 0) {
+                $errors[] = array('input' => 'result', 'msg' => 'Username already exists');
+                echo '<p class="bg-danger text-center">Username already exists</p>';
+            }
+        }
+        
 
         if(count($errors)==0 )
         {
