@@ -3,8 +3,25 @@ $(document).ready(function() {
     $(".choose").change(function () {
         $("select option").prop("disabled", false);
         $(".choose").not($(this)).find("option[value='" + $(this).val() + "']").prop("disabled", true);
+        $("#rbook").hide();
+        $("#button4").show();
+        $("#book").hide();
+        $("#book1").hide();
     });
+
+
+    $("#cabtype").change(function(){
+      $("#rbook").hide();
+        $("#button4").show();
+        $("#book").hide();
+        $("#book1").hide();
+    })
+
     $("#lugg").bind("keypress", function (e) {
+      $("#rbook").hide();
+        $("#button4").show();
+        $("#book").hide();
+        $("#book1").hide();
         var keyCode = e.which ? e.which : e.keyCode
         if (!(keyCode >= 48 && keyCode <= 57)) {
           return false;
@@ -92,6 +109,15 @@ $(document).ready(function() {
         }
         else{
             $('#ep').hide();
+        }
+        if($drop==null)
+        {
+            $('#book').hide();
+            $('#book1').hide();
+            return $('#ed').show();
+        }
+        else{
+            $('#ed').hide();
         }
         $.ajax({
             url: 'process.php',

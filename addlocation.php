@@ -57,7 +57,16 @@ if(isset($_GET['action']))
            $sloc = $adm->slocation($loc->conn);
            foreach($sloc as $key=>$val)
            {
-               echo "<tr><td>".$val['id']."</td><td>".$val['name']."</td><td>".$val['distance']."</td><td>".$val['is_available']."</td>";
+               echo "<tr><td>".$val['id']."</td><td>".$val['name']."</td><td>".$val['distance']."</td>";
+               if($val['is_available']==1)
+               {
+                    echo "<td>YES</td>";
+               }
+               if($val['is_available']==0)
+               {
+               echo "<td>NO</td>";
+               }
+            
                if($val['is_available']==1)
                {
                     echo "<td><a class='btn btn-warning' href='addlocation.php?action=yes&id=".$val['id']."'>Disable</a></td>";

@@ -214,7 +214,8 @@ class user{
                 $sql = "UPDATE user SET password='$new' WHERE user_id='$idp'";
 
                 if ($conn->query($sql) === true) {
-                    echo '<p class="bg-success text-center">Password Updated Successful</p>';
+                    echo '<script>alert("Password Changed Successfuly please Login Again");
+                    window.location.href = "logout.php";</script>';
                 }
                 else {
                 echo $conn->errors;
