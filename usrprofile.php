@@ -1,5 +1,9 @@
 <?php
 session_start();
+if(!isset($_SESSION['userdata']))
+{
+    header('Location: index.php');
+}
 if($_SESSION['userdata']['is_admin']==1)
 {
     
@@ -83,11 +87,11 @@ include('ussidebar.php');
   <form action="usrprofile.php"  method="post">
   <div class="form-group  row feilds ">
     <label class="col-sm-2" for="name" >Name</label>
-    <input class="form-control-plaintext col-sm-10 " type="text" name="name" id="name" placeholder="Enter Your Name" value="<?php if(isset($na)){ echo $na; } ?>" required>
+    <input class="form-control-plaintext col-sm-10 " type="text" pattern="^[a-zA-Z_]+( [a-zA-Z_]+)*$" name="name" id="name" placeholder="Enter Your Name" value="<?php if(isset($na)){ echo $na; } ?>" required>
     </div>
     <div class="form-group  row feilds ">
     <label class="col-sm-2" for="mobile">Mobile</label>
-    <input class="form-control-plaintext col-sm-10 " type="text" name="mobile" id="mobile" maxlength="10" placeholder="Enter Mobile Number" <?php if(isset($mo)){echo "value=".$mo ;} ?> required>
+    <input class="form-control-plaintext col-sm-10 " type="text" name="mobile" id="mobile" maxlength="10" minlength="10" placeholder="Enter Mobile Number" <?php if(isset($mo)){echo "value=".$mo ;} ?> required>
     </div>
     <input type="hidden" name="id" id="id" <?php if(isset($id)){ echo "value= ".$id; } ?>>
     <div class="form-group ">

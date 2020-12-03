@@ -9,6 +9,10 @@ $lugg = $_POST['lugg'];
 $far = $_POST['far'];
 //$array = array("Charbagh"=>0,"Indira Nagar"=>10,"BBD"=>30,"Barabanki"=>60,"Faizabad"=>100,"Basti"=>150,"Gorakhpur"=>210);
 $dist=0;
+if($lugg =="")
+{
+    $lugg=0;
+}
 $adm = new adminwrk();
 $admc = new dbcon();
 $show = $adm->fetloc($admc->conn); 

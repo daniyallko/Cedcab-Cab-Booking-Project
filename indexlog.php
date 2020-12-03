@@ -1,5 +1,9 @@
 <?php
 session_start();
+if(!isset($_SESSION['userdata']))
+{
+    header('Location: index.php');
+}
 if($_SESSION['userdata']['is_admin']==1)
 {
     
@@ -28,6 +32,7 @@ include('adminwrk.php');
     echo '<h1 class="text-center text-weight-bold text-dark">ADMIN can not book ride</h1>';
 }
 else {
+    
 include('adminwrk.php');
 
 include('header.php');
@@ -38,5 +43,4 @@ include('bodys.php');
 
 include('footers.php'); 
 }
-
 ?>

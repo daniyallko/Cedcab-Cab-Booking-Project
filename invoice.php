@@ -1,6 +1,10 @@
 <?php
 
 include('adhead.php');
+if(!isset($_SESSION['userdata']))
+{
+    header('Location: index.php');
+}
 if($_SESSION['userdata']['is_admin']==1){
 include('adsidebar.php');
 

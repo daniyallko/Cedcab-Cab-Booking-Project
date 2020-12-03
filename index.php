@@ -16,7 +16,14 @@ if(isset($_POST['book']))
 }
 if(isset($_SESSION['userdata']))
 {
-    header('Location: indexlog.php');
+    if($_SESSION['userdata']['is_admin']==0)
+    {
+        header('Location: indexlog.php');
+    }
+    if($_SESSION['userdata']['is_admin']==1)
+    {
+        header('Location: admin.php');
+    }
 }
 else{
 include('adminwrk.php');

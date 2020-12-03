@@ -1,5 +1,8 @@
 <?php
-
+if(!isset($_SESSION['userdata']))
+{
+    header('Location: index.php');
+}
 include('adhead.php');
 $id= $_GET['id'];
 $_SESSION['temp'] = $id;

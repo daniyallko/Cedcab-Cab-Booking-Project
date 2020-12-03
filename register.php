@@ -69,7 +69,7 @@ else {
 
             <div class="form-group  row feilds ">
                 <label class="col-sm-2">NAME</label>
-                <input name="username" for="username" type="text" class="form-control-plaintext col-sm-10 arro" id="username" placeholder="Enter your name" required>
+                <input name="username" for="username" type="text" pattern="^[a-zA-Z_]+( [a-zA-Z_]+)*$" class="form-control-plaintext col-sm-10 arro" id="username" placeholder="Enter your name" required>
             </div>
 
             <div class="form-group  row feilds ">
@@ -91,7 +91,7 @@ else {
       
         <div class="form-group  row feilds ">
         <label class="col-sm-2">MOBILE</label>
-            <input name="mobile" for="mobile" type="text" class="form-control-plaintext col-sm-10 arro" maxlength="10" id="mobile"  placeholder="Enter your Mobile Number" required>
+            <input name="mobile" for="mobile" type="text" class="form-control-plaintext col-sm-10 arro" maxlength="10" minlength="10" id="mobile"  placeholder="Enter your Mobile Number" required>
         </div>
       
             <div class="form-group ">

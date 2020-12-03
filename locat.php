@@ -1,5 +1,9 @@
 <?php 
 include('adhead.php');
+if(!isset($_SESSION['userdata']))
+{
+    header('Location: index.php');
+}
 if($_SESSION['userdata']['is_admin']==1){
 include('adsidebar.php'); 
 
@@ -27,7 +31,7 @@ if (isset($_POST['submit']))
   <form action="locat.php"  method="post">
   <div class="form-group  row feilds ">
     <label class="col-sm-2" for="location" >Location</label>
-    <input class="form-control-plaintext col-sm-10 " type="text" name="location" id="location" placeholder="Enter Location" required>
+    <input class="form-control-plaintext col-sm-10 " type="text" pattern="^[a-zA-Z0-9_]+( [a-zA-Z0-9_]+)*$" name="location" id="location" placeholder="Enter Location" required>
     </div>
     <div class="form-group  row feilds ">
     <label class="col-sm-2" for="distance">Distance</label>
