@@ -35,7 +35,7 @@ if (isset($_POST['submit']))
     </div>
     <div class="form-group  row feilds ">
     <label class="col-sm-2" for="distance">Distance</label>
-    <input class="form-control-plaintext col-sm-10 " type="number" name="distance" id="distance" placeholder="Enter Distance" required>
+    <input class="form-control-plaintext col-sm-10 " type="number" name="distance" step=".01" id="distance" placeholder="Enter Distance" required>
     </div>
     <div class="form-group   feilds ">
     <label  for="available">Make Available</label>

@@ -505,3 +505,9 @@ function sortTablen(n,dd) {
             }
         })
     })
+    
+    $('#penrd').click(function(){
+      $('#allr').hide();
+      $('#penr').show();
+      window.location.href="allrides.php";
+    })

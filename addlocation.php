@@ -61,7 +61,7 @@ if(isset($_GET['action']))
            $sloc = $adm->slocation($loc->conn);
            foreach($sloc as $key=>$val)
            {
-               echo "<tr><td>".$val['id']."</td><td>".$val['name']."</td><td>".$val['distance']."</td>";
+               echo "<tr><td>".$val['id']."</td><td>".$val['name']."</td><td>".$val['distance']." Km</td>";
                if($val['is_available']==1)
                {
                     echo "<td>YES</td>";

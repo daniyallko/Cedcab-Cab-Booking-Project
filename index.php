@@ -11,6 +11,7 @@ if(isset($_POST['book']))
   $_SESSION['book']['drop']=$_POST['drop'];
   $_SESSION['book']['cabtype']=$_POST['cabtype'];
   $_SESSION['book']['lugg']=$lugg;
+  $_SESSION["time"] = time();  
   echo '<script>alert("Please Login to BOOK a ride");
        window.location.href = "login.php";</script>';
 }

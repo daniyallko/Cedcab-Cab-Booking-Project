@@ -44,7 +44,7 @@ if (isset($_POST['edit']))
     </div>
     <div class="form-group  row feilds ">
     <label class="col-sm-2" for="distance">Distance</label>
-    <input class="form-control-plaintext col-sm-10 " type="number" name="distance" id="distance" placeholder="Enter Distance" <?php if(isset($di)){echo "value=".$di ;} ?> required>
+    <input class="form-control-plaintext col-sm-10 " type="number" name="distance" id="distance" step=".01" placeholder="Enter Distance" <?php if(isset($di)){echo "value=".$di ;} ?> required>
     </div>
     <div class="form-group   feilds ">
     <label  for="available">Make Available</label>

@@ -1,33 +1,9 @@
 <?php
       session_start();
-      if(isset($_SESSION['userdata'])){
-if($_SESSION['userdata']['is_admin']==1)
-{
-    
+if(isset($_SESSION['userdata'])){
+  header("location: index.php");
+}
 
-include('header.php');
-include('adminwrk.php'); 
- ?>
-<header>
-      <nav  class="navbar navbar-expand-lg">
-          <a class="navbar-brand nos" href="#">Ced<span class="gree">Cab</span></a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-              <span><i class="fas fa-bars logo text-dark"></i></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-              <ul class="navbar-nav ml-auto">
-                
-                  <li class="nav-item rbtn">
-                      <a class="btn" href="admin.php">Dashboard</a>
-                      <a class="btn" href="logout.php">Logout</a>
-                  </li>
-              </ul>
-          </div>
-      </nav>
-  </header>
-  <?php
-    echo '<h1 class="text-center text-weight-bold text-dark">ADMIN can not Enter User Area</h1>';
-}}
 else {
 	  include ('user.php'); 
 	  $errors = array();
@@ -42,9 +18,9 @@ else {
 		  $dbcon = new dbcon();
 		  $show=$user->login($user_name,$password,$dbcon->conn);
         }
-        
+
 		include('header.php'); 
-		include('navh.php'); 
+    include('navh.php'); 
  ?>
 
 <body>
@@ -61,7 +37,7 @@ else {
 
 		<div class="form-group  row feilds ">
         <label class="col-sm-2">E-MAIL</label>
-            <input name="email" for="email" type="text" class="form-control-plaintext col-sm-10 arro" id="email" placeholder="Enter your E-mail" required>
+            <input name="email" for="email" type="text" class="form-control-plaintext col-sm-10 arro" id="email" placeholder="Enter your E-mail" <?php if(isset($_COOKIE['email'])) { echo 'value="'.$_COOKIE['email'].'"'; } ?>required>
 		</div>
 		
 		<div class="form-group  row feilds ">
@@ -77,4 +53,11 @@ else {
     </section>
   </div>
 
-    <?php include('footer.php');} ?>
+    <?php include('footer.php');
+  
+  if(isset($_SESSION['book'])){
+  if(time()-$_SESSION["time"] >120)   
+    { 
+        unset($_SESSION['book']);
+    } }
+    } ?>

@@ -70,22 +70,26 @@ class user{
         }
 
         if ($password == $password2) {
-            $sql = "SELECT * from user WHERE user_name like '$username'";
+            
+            $sql = "SELECT * from user WHERE user_name like '$email'";
             $result = $conn->query($sql);
             if ($result->num_rows > 0) {
                 $errors[] = array('input' => 'result', 'msg' => 'Username already exists');
-                echo '<p class="bg-danger text-center">Username already exists</p>';
+                echo '<p class="bg-danger text-center">E-mail id already registered</p>';
+                
             }
         }
         
 
         if(count($errors)==0 )
         {
+            setcookie("email", $email, time() + 60 * 60 * 24);
             $password = md5($password);
             $sql = "INSERT INTO user(`name`, `password`, `user_name`,`mobile`,`dateofsignup`,`isblock`,`is_admin`) VALUES('".$username."', '".$password."', '".$email."', '".$mobile."', '".$datetime."',0, 0)";
 
             if ($conn->query($sql) === true) {
-                echo '<p class="bg-success text-center">Registration Successful</p>';
+                echo '<script>alert("Registration Successful, Going to Login Page");
+                     window.location.href = "login.php";</script>';
             }
              else {
                // $errors[] = array('input'=>'form','msg'=>$conn->errors);
