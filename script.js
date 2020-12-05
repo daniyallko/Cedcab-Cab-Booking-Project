@@ -17,11 +17,15 @@ $(document).ready(function() {
         $("#book1").hide();
     })
 
-    $("#lugg").bind("keypress", function (e) {
+    $("#lugg").keyup(function(){
       $("#rbook").hide();
-        $("#button4").show();
-        $("#book").hide();
-        $("#book1").hide();
+      $("#button4").show();
+      $("#book").hide();
+      $("#book1").hide();
+    })
+
+    $("#lugg").bind("keypress", function (e) {
+      
         var keyCode = e.which ? e.which : e.keyCode
         if (!(keyCode >= 48 && keyCode <= 57)) {
           return false;
