@@ -40,6 +40,7 @@ include('ussidebar.php');?>
       <div class="col-sm-6 col-lg-3">
         <div class="card bg-success text-center">
           <div class="card-body">
+          <i class="fas fa-taxi po"></i>
             <h5 class="card-title ">All Rides</h5>
             <p class="card-text font-weight-bold text-dark h1">
               <?php
@@ -55,12 +56,13 @@ include('ussidebar.php');?>
       <div class="col-sm-6 col-lg-3 ">
         <div class="card bg-warning text-center">
           <div class="card-body">
+          <i class="fas fa-car po"></i>
             <h5 class="card-title">Pending Rides</h5>
             <p class="card-text font-weight-bold text-dark h1">
               <?php
             $cn = $adm->pcountride($id,$admc->conn);
             print_r($cn); ?></p>           
-             <a  href="usrride.php" class="btn btn-primary green">Go To</a>
+             <a  href="upenride.php" class="btn btn-primary green">Go To</a>
           </div>
         </div>
       </div>
@@ -68,12 +70,13 @@ include('ussidebar.php');?>
       <div class="col-sm-6 col-lg-3 ">
         <div class="card bg-info text-center">
           <div class="card-body">
+          <i class="fas fa-check po"></i>
             <h5 class="card-title">Completed Rides</h5>
             <p class="card-text font-weight-bold text-dark h1">
               <?php
             $cn = $adm->cocountride($id,$admc->conn);
             print_r($cn); ?></p>   
-            <a href="usrride.php" class="btn btn-primary green">Go To</a>
+            <a href="ucomride.php" class="btn btn-primary green">Go To</a>
           </div>
         </div>
       </div>
@@ -85,12 +88,13 @@ include('ussidebar.php');?>
     <div class="col-sm-6 col-lg-3 ">
         <div class="card bg-success text-center">
           <div class="card-body">
+          <i class="fas fa-times po"></i>
             <h5 class="card-title">Cancelled Rides</h5>
             <p class="card-text font-weight-bold text-dark h1">
               <?php
             $cn = $adm->cacountride($id,$admc->conn);
             print_r($cn); ?></p>
-             <a href="usrride.php" class="btn btn-primary green">Go To</a>
+             <a href="ucanride.php" class="btn btn-primary green">Go To</a>
           </div>
         </div>
       </div>
@@ -98,12 +102,13 @@ include('ussidebar.php');?>
       <div class="col-sm-6 col-lg-3 ">
         <div class="card bg-warning text-center">
           <div class="card-body">
+          <i class="fas fa-rupee-sign po"></i>
             <h5 class="card-title">Total Spendings</h5>
             <p class="card-text font-weight-bold text-dark h1"><?php 
            
             $en = $adm->earn($id,$admc->conn);
             ?>₹<?php echo $en; ?></p>
-            <a href="usrride.php" class="btn btn-primary green">Go To</a>
+            <p>on Completed Rides</p>
           </div>
         </div>
       </div>
@@ -111,6 +116,7 @@ include('ussidebar.php');?>
       <div class="col-sm-6 col-lg-3 ">
         <div class="card bg-info text-center">
           <div class="card-body">
+          <i class="fas fa-user-edit po"></i>
             <h5 class="card-title">Edit</h5>
             <p class="card-text font-weight-bold text-dark h1">Profile</p>
             <a href="usrprofile.php" class="btn btn-primary green">Go To</a>
@@ -121,5 +127,11 @@ include('ussidebar.php');?>
     </div>
     
     <?php
+
+if(isset($_SESSION['book']))
+{
+  unset($_SESSION['book']);
+}
+
 include('adfoot.php');
 }?>

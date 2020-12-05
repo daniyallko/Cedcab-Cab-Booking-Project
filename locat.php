@@ -31,7 +31,7 @@ if (isset($_POST['submit']))
   <form action="locat.php"  method="post">
   <div class="form-group  row feilds ">
     <label class="col-sm-2" for="location" >Location</label>
-    <input class="form-control-plaintext col-sm-10 " type="text" pattern="^[a-zA-Z0-9_]+( [a-zA-Z0-9_]+)*$" name="location" id="location" placeholder="Enter Location" required>
+    <input class="form-control-plaintext col-sm-10 " type="text" pattern="^[a-zA-Z_]+( [a-zA-Z0-9_]+)*$" name="location" id="location" placeholder="Enter Location" required>
     </div>
     <div class="form-group  row feilds ">
     <label class="col-sm-2" for="distance">Distance</label>
@@ -40,9 +40,9 @@ if (isset($_POST['submit']))
     <div class="form-group   feilds ">
     <label  for="available">Make Available</label>
     <label  for="yes">YES</label>
-    <input class="" type="radio" name="available" id="available" value=1>
+    <input class="" type="radio" name="available" id="available" value=1 required>
     <label  for="no">NO</label>
-    <input class="" type="radio" name="available" id="available" value=0>
+    <input class="" type="radio" name="available" id="available" value=0 required>
     </div>
     
     <div class="form-group ">

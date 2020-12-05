@@ -43,7 +43,31 @@ class user{
                      }
                      if($row['isblock']==1 && $row['is_admin']==0){
                         $_SESSION['userdata'] = array('username'=>$row['name'],'user_id'=>$row['user_id'],'is_admin'=>$row['is_admin']);
-                        header('Location: indexlog.php');
+                        if(isset($_SESSION['book']))
+                        {
+                            $pickup = $_SESSION['book']['pickup'];
+                            $drop = $_SESSION['book']['drop'];
+                            $cabtype = $_SESSION['book']['cabtype'];
+                            $lugg = $_SESSION['book']['lugg'];
+                            $far = $_SESSION['book']['fare'];
+                            $dist= $_SESSION['book']['dist'];
+                          
+                            date_default_timezone_set('asia/kolkata');
+                            $datetime = date("Y-m-d h:i");
+                            $id = $_SESSION['userdata']['user_id'];
+                            $user = new user();
+                            $dbcon = new dbcon();
+                            $save=$user->book($pickup,$drop,$cabtype,$dist,$far,$lugg,$datetime,$id,$dbcon->conn);
+                            
+
+                            echo '<script>alert("Your Ride request from '.$pickup.' to '.$drop.' BY '.$cabtype.' has been sent");
+                            window.location.href = "dash.php";</script>';
+                        }
+                        else{
+                             header('Location: dash.php');
+                        }
+                        
+                       
                      }
                      
                  } 
@@ -173,7 +197,10 @@ class user{
             
             if ($conn->query($sql) === true) {
                 $_SESSION['userdata']['username'] = $name;
-                echo '<p class="bg-success text-center">Profile Edited Successful</p>';
+                echo '<script>alert("Profile Updated Successfully");
+                window.location.href = "usrprofile.php"</script>';
+                
+               // echo '<p class="bg-success text-center">Profile Edited Successful</p>';
             }
              else {
                echo '<p class="bg-danger text-center">Something Went wrong</p>';
@@ -322,6 +349,20 @@ class user{
             array_push($appr, $row);
         }
         return $appr;
+    }
+
+    function book($pickup,$drop,$cabtype,$dist,$far,$lugg,$datetime,$id,$conn)
+    {
+        echo $sql = "INSERT INTO ride(`ride_date`,`from_distance`,`to_distance`,`cab_type`,`total_distance`,`luggage`,`total_fare`,`status`,`customer_user_id`) VALUES('".$datetime."','".$pickup."','".$drop."','".$cabtype."','".$dist."','".$lugg."','".$far."',1,'".$id."')";
+        
+        if ($conn->query($sql) === TRUE)
+            {
+               return;
+            } 
+            else 
+            {
+                $conn->error;
+            }
     }
 }
 

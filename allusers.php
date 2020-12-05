@@ -41,6 +41,7 @@ if(isset($_GET['action']))
 <nav class="nav nav-pills nav-justified col-sm-10">
   <a class="nav-link btn-light active" href="allusers.php">All Users</a>
   <a class="nav-link btn-light" href="aprove.php">Pending/Blocked Users</a>
+  <a class="nav-link btn-light" href="aprovedusr.php">Approved Users</a>
 </nav>
 
 <div class="container-fluid">
@@ -48,14 +49,14 @@ if(isset($_GET['action']))
     
     <table id='tbl' class="container-fluid col-lg-10 mr-lg-2 table table-responsive table-hover table-bordered table-striped">
         <thead>
-            <th>User id</th>
+            <!-- <th>User id</th> -->
             <th onclick='sortTable(1,tbl)'>Name ⇩</th>
             <th onclick='sortTable(2,tbl)'>Email ⇩</th>
             <th onclick='sortTable(3,tbl)'>Date of signup ⇩</th>
             <th onclick='sortTablen(4,tbl)'>Mobile ⇩</th>
             <th>Approve/Block</th>
-            <th>Delete</th>
-            <th>Details</th>
+            <!-- <th>Delete</th>
+            <th>Details</th> -->
         </thead>
         <tbody>
         <?php 
@@ -64,7 +65,7 @@ if(isset($_GET['action']))
             $show = $adm->newuser($admc->conn);
             foreach($show as $key=>$val)
             {
-              echo "<tr><td>".$val['user_id']."</td><td>".$val['name']."</td><td>".$val['user_name']."</td><td>".$val['dateofsignup']."</td><td>".$val['mobile']."</td></td>"; 
+              echo "<tr><td>".$val['name']."</td><td>".$val['user_name']."</td><td>".$val['dateofsignup']."</td><td>".$val['mobile']."</td></td>"; 
               if($val['isblock']==1)
               {
                 echo "<td><a class='btn btn-warning' href='allusers.php?action=blk&id=".$val['user_id']."'>Block</a></td>";
@@ -73,9 +74,9 @@ if(isset($_GET['action']))
               {
                echo "<td><a class='btn btn-success' href='allusers.php?action=app&id=".$val['user_id']."'>Approve</a></td>";
               }
-              echo "<td><a class='btn btn-danger' href='allusers.php?action=no&id=".$val['user_id']."'>Delete</a></td>";
+              // echo "<td><a class='btn btn-danger' href='allusers.php?action=no&id=".$val['user_id']."'>Delete</a></td>";
             
-              echo "<td><a class='btn btn-danger' href='usrdetail.php?id=".$val['user_id']."'>Details</a></td></tr>";
+              // echo "<td><a class='btn btn-danger' href='usrdetail.php?id=".$val['user_id']."'>Details</a></td></tr>";
             }
 
         ?>

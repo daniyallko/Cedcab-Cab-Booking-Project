@@ -63,7 +63,7 @@ else {
     
         <div class="form-group  row feilds ">
         <label class="col-sm-2">E-MAIL</label>
-            <input name="email" for="email" type="text" class="form-control-plaintext col-sm-10 arro" id="email" placeholder="Enter your E-mail" required>
+            <input name="email" for="email" type="email" class="form-control-plaintext col-sm-10 arro" id="email" placeholder="Enter your E-mail" required>
         </div>
       
         <div class="form-group  row feilds ">

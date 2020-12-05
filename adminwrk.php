@@ -50,7 +50,7 @@ class adminwrk
 
             if ($conn->query($sql) === TRUE)
             {
-                echo '<p class="bg-success text-center">Deleted Successful</p>';
+                
             } 
             else 
             {
@@ -98,7 +98,7 @@ class adminwrk
 
             if ($conn->query($sql) === TRUE)
             {
-                echo '<p class="bg-success text-center">Deleted Successful</p>';
+               
             } 
             else 
             {
@@ -109,7 +109,17 @@ class adminwrk
 
     function alocation($location,$distance,$available,$conn)
     {
-        $sql = "INSERT INTO location(`name`, `distance`, `is_available`) VALUES('".$location."', '".$distance."', '".$available."')";
+        $errors=array();
+            
+            $sql = "SELECT * from location WHERE name like '$location'";
+            $result = $conn->query($sql);
+            if ($result->num_rows > 0) {
+                $errors[] = array('input' => 'result', 'msg' => 'Username already exists');
+                echo '<p class="bg-danger text-center">Location already Exists</p>';
+            }
+        if(count($errors)==0 )
+        {   
+            $sql = "INSERT INTO location(`name`, `distance`, `is_available`) VALUES('".$location."', '".$distance."', '".$available."')";
             
             if ($conn->query($sql) === true) {
                 echo '<p class="bg-success text-center">Location Added Successful</p>';
@@ -118,6 +128,7 @@ class adminwrk
                echo '<p class="bg-danger text-center">Something Went wrong</p>';
 
             }
+        }
     }
 
     function fetloc($conn)
@@ -186,7 +197,7 @@ class adminwrk
 
             if ($conn->query($sql) === TRUE)
             {
-                echo '<p class="bg-success text-center">Deleted Successful</p>';
+               
             } 
             else 
             {
@@ -197,20 +208,42 @@ class adminwrk
 
     function elocation($location,$distance,$available,$id,$conn)
     {
-        $sql = "UPDATE location SET name='".$location."', distance='".$distance."', is_available='".$available."' WHERE id=$id";
+        $errors=array();
             
-            if ($conn->query($sql) === true) {
-                echo '<p class="bg-success text-center">Location Edited Successful</p>';
+            $sql = "SELECT * from location WHERE name like '$location' AND id!='$id'";
+            $result = $conn->query($sql);
+            if ($result->num_rows > 0) {
+                $errors[] = array('input' => 'result', 'msg' => 'Username already exists');
+                echo '<p class="bg-danger text-center">Location already Exists</p>';
             }
-             else {
-               echo '<p class="bg-danger text-center">Something Went wrong</p>';
+        if(count($errors)==0 )
+        {   
+            $sql = "UPDATE location SET name='".$location."', distance='".$distance."', is_available='".$available."' WHERE id=$id";
+                
+                if ($conn->query($sql) === true) {
+                    echo '<p class="bg-success text-center">Location Edited Successful</p>';
+                }
+                else {
+                echo '<p class="bg-danger text-center">Something Went wrong</p>';
 
-            }
+                }
+        }
     }
 
     function aprove($conn)
     {
         $sql = "SELECT * FROM user WHERE is_admin=0 AND isblock=0";
+        $result = $conn->query($sql);
+        $appr=array();
+        while($row = $result->fetch_assoc()){
+            array_push($appr, $row);
+        }
+        return $appr;
+    }
+
+    function aproved($conn)
+    {
+        $sql = "SELECT * FROM user WHERE is_admin=0 AND isblock=1";
         $result = $conn->query($sql);
         $appr=array();
         while($row = $result->fetch_assoc()){

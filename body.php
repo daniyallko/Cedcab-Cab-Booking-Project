@@ -69,12 +69,13 @@
         <p id="ec" class="bg-danger text-center">Enter Cabtype</p>
         <div class="form-group  row feilds ">
           <label class="col-sm-3" for="luggage">LUGGAGE</label>
-          <input type="text" name="lugg"  class="form-control-plaintext col-sm-9 arrow" id="lugg" placeholder="Enter weight in KG">
+          <input type="text" name="lugg"  class="form-control-plaintext col-sm-9 arrow" maxlength="2" id="lugg" placeholder="Enter weight in KG">
           <p id="err" class="text-danger h6">*Luggage is not available in CedMicro</p>
         </div>
         <p id="nu" class="bg-danger text-center">Enter Numeric Weight Value</p>
         <p id="fare" class="green text-center"></p>
         <input type="hidden" id="far" name="fare" value="" >
+        <input type="hidden" id="dist" name="dist" value="" >
       
             <div class="form-group ">
                 <input type="button" class="btn green btn-primary btn-lg btn-block" id="button4" name="submit" value="Calculate Fare">

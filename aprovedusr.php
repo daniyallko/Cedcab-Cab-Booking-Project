@@ -14,7 +14,7 @@ if(isset($_GET['action']))
 
     elseif($_GET['action']=='no')
     {
-        $ap=0;
+        $ap=2;
         $adm = new adminwrk();
         $admc = new dbcon();
         $sho = $adm->yesno($ap,$id,$admc->conn);
@@ -24,12 +24,12 @@ if(isset($_GET['action']))
 
 <nav class="nav nav-pills nav-justified col-sm-10">
   <a class="nav-link btn-light " href="allusers.php">All Users</a>
-  <a class="nav-link btn-light active" href="aprove.php">Pending/Blocked Users</a>
-  <a class="nav-link btn-light" href="aprovedusr.php">Approved Users</a>
+  <a class="nav-link btn-light " href="aprove.php">Pending/Blocked Users</a>
+  <a class="nav-link btn-light active" href="aprovedusr.php">Approved Users</a>
 </nav>
 
 <div>
-  <h3 class="text-center">Pending/Blocked Users</h3>
+  <h3 class="text-center">Approved Users</h3>
     
     <table id="tbl" class="container-fluid col-lg-10 mr-lg-2 table table-responsive table-hover table-bordered table-striped">
         <thead>
@@ -45,10 +45,10 @@ if(isset($_GET['action']))
         <?php 
             $adm = new adminwrk();
             $admc = new dbcon();
-            $show = $adm->aprove($admc->conn);
+            $show = $adm->aproved($admc->conn);
             foreach($show as $key=>$val)
             {
-                echo "<tr><td>".$val['name']."</td><td>".$val['user_name']."</td><td>".$val['dateofsignup']."</td><td>".$val['mobile']."</td><td><a class='btn btn-success' href='aprove.php?action=yes&id=".$val['user_id']."'>Approve</a></td></tr>"; //<td><a class='btn btn-danger' href='aprove.php?action=no&id=".$val['user_id']."'>Delete</a></td></tr>"; 
+                echo "<tr><td>".$val['name']."</td><td>".$val['user_name']."</td><td>".$val['dateofsignup']."</td><td>".$val['mobile']."</td><td><a class='btn btn-warning' href='aprovedusr.php?action=no&id=".$val['user_id']."'>Block</a></td></tr>"; //<td><a class='btn btn-danger' href='aprove.php?action=no&id=".$val['user_id']."'>Delete</a></td></tr>"; 
             }
              ?>
         

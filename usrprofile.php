@@ -47,7 +47,7 @@ if (isset($_POST['change']))
     $admc = new dbcon();
     $show = $adm->changep($old,$new,$rnew,$idp,$admc->conn);
 }
-
+  
     $id=$_SESSION['userdata']['user_id'];
     $adm = new user();
     $admc = new dbcon();

@@ -117,7 +117,8 @@ if($lugg>0){
         }
 }
 }
-echo $fare;
+$result=array(
+    'fare'=>$fare,'dist'=>$dist
+);
+  echo json_encode($result) ;
 }
-
-?>

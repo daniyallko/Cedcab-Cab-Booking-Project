@@ -1,6 +1,7 @@
 #bg{
     background-image: url(cab.jpg);
     background-repeat: no-repeat;
+    background-size: cover;
     
 }
 .green{
@@ -66,10 +67,14 @@ label{
 th{
     cursor: pointer;
 }
+.po{
+    font-size: 100px;
+}
 .sidebar {
     
     background-color: #f1f1f1;
     height: 800px;
+    width: 200px;
     overflow: auto;
   }
   

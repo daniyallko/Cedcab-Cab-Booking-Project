@@ -1,8 +1,4 @@
 <?php
-if(!isset($_SESSION['userdata']))
-{
-    header('Location: index.php');
-}
 include('adhead.php');
 $id= $_GET['id'];
 $_SESSION['temp'] = $id;
@@ -123,7 +119,7 @@ include('adsidebar.php');
             $showr = $adm->allrideu($id,$admc->conn);
             foreach($showr as $key=>$val)
             {
-              echo "<tr><td>".$val['ride_date']."</td><td>".$val['from_distance']."</td><td>".$val['to_distance']."</td><td>".$val['cab_type']."</td><td>".$val['total_distance']." Km</td><td>".$val['luggage']." Kg</td><td>".$val['total_fare']."</td><td>";
+              echo "<tr><td>".$val['ride_date']."</td><td>".$val['from_distance']."</td><td>".$val['to_distance']."</td><td>".$val['cab_type']."</td><td>".$val['total_distance']." Km</td><td>".$val['luggage']." Kg</td><td>".$val['total_fare']." Rs</td><td>";
               if($val['status']==1)
               {
                 echo "Pending</td>";

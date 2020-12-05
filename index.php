@@ -11,6 +11,8 @@ if(isset($_POST['book']))
   $_SESSION['book']['drop']=$_POST['drop'];
   $_SESSION['book']['cabtype']=$_POST['cabtype'];
   $_SESSION['book']['lugg']=$lugg;
+  $_SESSION['book']['fare']=$_POST['fare'];
+  $_SESSION['book']['dist']=$_POST['dist'];
   $_SESSION["time"] = time();  
   echo '<script>alert("Please Login to BOOK a ride");
        window.location.href = "login.php";</script>';
@@ -19,7 +21,7 @@ if(isset($_SESSION['userdata']))
 {
     if($_SESSION['userdata']['is_admin']==0)
     {
-        header('Location: indexlog.php');
+        header('Location: dash.php');
     }
     if($_SESSION['userdata']['is_admin']==1)
     {

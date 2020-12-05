@@ -21,7 +21,7 @@ include('adsidebar.php'); ?>
             $admc = new dbcon();
             $cn = $adm->countride($admc->conn);
             print_r($cn); ?></p>
-            <a href="allrides.php#allr" class="btn btn-primary green">Go To</a>
+            <a href="allrides.php" class="btn btn-primary green">Go To</a>
           </div>
         </div>
       </div>
@@ -34,7 +34,7 @@ include('adsidebar.php'); ?>
               <?php
             $cn = $adm->pcountride($admc->conn);
             print_r($cn); ?></p>           
-             <a  id="penrd" class="btn btn-primary green">Go To</a>
+             <a  href="apenride.php" class="btn btn-primary green">Go To</a>
           </div>
         </div>
       </div>
@@ -47,7 +47,7 @@ include('adsidebar.php'); ?>
               <?php
             $cn = $adm->cocountride($admc->conn);
             print_r($cn); ?></p>   
-            <a href="allrides.php#penr" class="btn btn-primary green">Go To</a>
+            <a href="acomride.php" class="btn btn-primary green">Go To</a>
           </div>
         </div>
       </div>
@@ -64,7 +64,7 @@ include('adsidebar.php'); ?>
               <?php
             $cn = $adm->cacountride($admc->conn);
             print_r($cn); ?></p>
-             <a href="allrides.php#penr" class="btn btn-primary green">Go To</a>
+             <a href="acanride.php" href="allrides.php#penr" class="btn btn-primary green">Go To</a>
           </div>
         </div>
       </div>
@@ -77,7 +77,7 @@ include('adsidebar.php'); ?>
             <?php 
             $en = $adm->earn($admc->conn);
             ?>₹<?php echo $en; ?></p>
-            <a href="allrides.php#penr" class="btn btn-primary green">Go To</a>
+            <p>Earning of completed Rides</p>
           </div>
         </div>
       </div>
@@ -107,7 +107,7 @@ include('adsidebar.php'); ?>
               <?php
             $au = $adm->acountuser($admc->conn);
             print_r($au); ?></p>
-             <a href="allusers.php" class="btn btn-primary green">Go To</a>
+             <a href="aprovedusr.php" class="btn btn-primary green">Go To</a>
           </div>
         </div>
       </div>

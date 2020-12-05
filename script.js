@@ -27,6 +27,7 @@ $(document).ready(function() {
           return false;
         }
     });
+    
 
     $("#mobile").bind("keypress", function (e) {
       var keyCode = e.which ? e.which : e.keyCode
@@ -128,17 +129,20 @@ $(document).ready(function() {
                 cabtype : $cabtype,
                 lugg : $lugg
             },
+             dataType : "json",
             success: function (result) {
-                console.log(result);
+                //console.log(result['dist']);
+                $('#dist').val(result['dist']);
                 $('#nu').hide();
                 $('#ep').hide();
                 $('#ed').hide();
                 $('#ec').hide();
                 $('#fare').show();
-                $('#fare').html("Your Fare is "+result);
+                $('#button4').hide();
+                $('#fare').html("Your Fare is Rs "+result['fare']);
                 $('#book').show();
                 $('#book1').show();
-                $('#far').val(result);
+                $('#far').val(result['fare']);
             },
             error: function () {
                 alert(error);
@@ -179,117 +183,104 @@ $("#book").click(function(e){
     });
     
 });
-$('#allr').show();
-$('#penr').hide();
-$('#canr').hide();
-$('#comr').hide();
-$('#ernr').hide();
+ $('#allr').show();
+// $('#penr').hide();
+// $('#canr').hide();
+// $('#comr').hide();
+ $('#ernr').hide();
 $('#srt').show();
 $("#allrid").click(function(){
     $('#allr').show();
-    $('#penr').hide();
-    $('#canr').hide();
-    $('#comr').hide();
     $('#ernr').hide();
     $('#cstats').show();
     $('#srt').show();
     $('#drp').show();
 });
-$("#penrid").click(function(){
-    $('#penr').show();
-    $('#allr').hide();
-    $('#canr').hide();
-    $('#comr').hide();
-    $('#ernr').hide();
-    $('#cstats').hide();
-    $('#srt').hide();
-    $('#drp').show();
-});
-$("#canrid").click(function(){
-    $('#canr').show();
-    $('#penr').hide();
-    $('#allr').hide();
-    $('#comr').hide();
-    $('#ernr').hide();
-    $('#cstats').hide();
-    $('#srt').hide();
-    $('#drp').show();
-});
-$("#comrid").click(function(){
-    $('#comr').show();
-    $('#penr').hide();
-    $('#canr').hide();
-    $('#allr').hide();
-    $('#ernr').hide();
-    $('#cstats').hide();
-    $('#srt').hide();
-    $('#drp').show();
-});
+// $("#penrid").click(function(){
+//     $('#penr').show();
+//     $('#allr').hide();
+//     $('#canr').hide();
+//     $('#comr').hide();
+//     $('#ernr').hide();
+//     $('#cstats').hide();
+//     $('#srt').hide();
+//     $('#drp').show();
+// });
+// $("#canrid").click(function(){
+//     $('#canr').show();
+//     $('#penr').hide();
+//     $('#allr').hide();
+//     $('#comr').hide();
+//     $('#ernr').hide();
+//     $('#cstats').hide();
+//     $('#srt').hide();
+//     $('#drp').show();
+// });
+// $("#comrid").click(function(){
+//     $('#comr').show();
+//     $('#penr').hide();
+//     $('#canr').hide();
+//     $('#allr').hide();
+//     $('#ernr').hide();
+//     $('#cstats').hide();
+//     $('#srt').hide();
+//     $('#drp').show();
+// });
 $("#ernrid").click(function(){
     $('#ernr').show();
-    $('#penr').hide();
-    $('#canr').hide();
     $('#allr').hide();
-    $('#comr').hide();
     $('#srt').hide();
     $('#drp').hide();
 });
 
 
-$('#allru').show();
-$('#penru').hide();
-$('#canru').hide();
-$('#comru').hide();
-$('#ernru').hide();
-$('#drp').show();
-$("#allridu").click(function(){
+ $('#allru').show();
+// $('#penru').hide();
+// $('#canru').hide();
+// $('#comru').hide();
+  $('#ernru').hide();
+  $('#drp').show();
+  $("#allridu").click(function(){
     $('#allru').show();
-    $('#penru').hide();
-    $('#canru').hide();
-    $('#comru').hide();
     $('#ernru').hide();
     $('#srt').show();
     $('#cstats').show();
     $('#drp').show();
 });
-$("#penridu").click(function(){
-    $('#penru').show();
-    $('#allru').hide();
-    $('#canru').hide();
-    $('#comru').hide();
-    $('#ernru').hide();
-    $('#srt').hide();
-    $('#cstats').hide();
-    $('#drp').show();
-});
-$("#canridu").click(function(){
-    $('#canru').show();
-    $('#penru').hide();
-    $('#allru').hide();
-    $('#comru').hide();
-    $('#ernru').hide();
-    $('#srt').hide();
-    $('#cstats').hide();
-    $('#drp').show();
-});
-$("#comridu").click(function(){
-    $('#comru').show();
-    $('#penru').hide();
-    $('#canru').hide();
-    $('#allru').hide();
-    $('#ernru').hide();
-    $('#srt').hide();
-    $('#cstats').hide();
-    $('#drp').show();
-});
+// $("#penridu").click(function(){
+//     $('#penru').show();
+//     $('#allru').hide();
+//     $('#canru').hide();
+//     $('#comru').hide();
+//     $('#ernru').hide();
+//     $('#srt').hide();
+//     $('#cstats').hide();
+//     $('#drp').show();
+// });
+// $("#canridu").click(function(){
+//     $('#canru').show();
+//     $('#penru').hide();
+//     $('#allru').hide();
+//     $('#comru').hide();
+//     $('#ernru').hide();
+//     $('#srt').hide();
+//     $('#cstats').hide();
+//     $('#drp').show();
+// });
+// $("#comridu").click(function(){
+//     $('#comru').show();
+//     $('#penru').hide();
+//     $('#canru').hide();
+//     $('#allru').hide();
+//     $('#ernru').hide();
+//     $('#srt').hide();
+//     $('#cstats').hide();
+//     $('#drp').show();
+// });
 $("#ernridu").click(function(){
     $('#ernru').show();
-    $('#penru').hide();
-    $('#canru').hide();
     $('#allru').hide();
-    $('#comru').hide();
     $('#drp').hide();
-
 });
 $('#edi').show();
 $('#cpaa').hide();

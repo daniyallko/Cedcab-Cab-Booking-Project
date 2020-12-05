@@ -37,7 +37,7 @@ else {
 
 		<div class="form-group  row feilds ">
         <label class="col-sm-2">E-MAIL</label>
-            <input name="email" for="email" type="text" class="form-control-plaintext col-sm-10 arro" id="email" placeholder="Enter your E-mail" <?php if(isset($_COOKIE['email'])) { echo 'value="'.$_COOKIE['email'].'"'; } ?>required>
+            <input name="email" for="email" type="email" class="form-control-plaintext col-sm-10 arro" id="email" placeholder="Enter your E-mail" <?php if(isset($_COOKIE['email'])) { echo 'value="'.$_COOKIE['email'].'"'; } ?>required>
 		</div>
 		
 		<div class="form-group  row feilds ">

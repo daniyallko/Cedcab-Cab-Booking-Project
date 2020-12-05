@@ -46,7 +46,7 @@ if(isset($_GET['action']))
   </div>
   <table id="tbl" class="container-fluid col-lg-10 table table-responsive table-hover table-bordered table-striped">
         <thead>
-            <th>Location id</th>
+            <!-- <th>Location id</th> -->
             <th onclick="sortTable(1,tbl)">Name ⇩</th>
             <th onclick="sortTablen(2,tbl)">Distance ⇩</th>
             <th>Available</th>
@@ -61,7 +61,7 @@ if(isset($_GET['action']))
            $sloc = $adm->slocation($loc->conn);
            foreach($sloc as $key=>$val)
            {
-               echo "<tr><td>".$val['id']."</td><td>".$val['name']."</td><td>".$val['distance']." Km</td>";
+               echo "<tr><td>".$val['name']."</td><td>".$val['distance']." Km</td>";
                if($val['is_available']==1)
                {
                     echo "<td>YES</td>";
@@ -79,7 +79,7 @@ if(isset($_GET['action']))
                {
                echo "<td><a class='btn btn-success' href='addlocation.php?action=apr&id=".$val['id']."'>Enable</a></td>";
                }
-               echo "<td><a class='btn btn-danger' href='addlocation.php?action=no&id=".$val['id']."'>Delete</a></td>";
+               echo "<td><a class='btn btn-danger' onClick=\"javascript: return confirm('Please confirm deletion');\" href='addlocation.php?action=no&id=".$val['id']."'>Delete</a></td>";
 
                echo "<td><a class='btn btn-info' href='editloc.php?action=edit&id=".$val['id']."&name=".$val['name']."&distance=".$val['distance']."&is_available=".$val['is_available']."'>Edit</a></td></tr>"; 
            }

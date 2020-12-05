@@ -40,7 +40,7 @@ if (isset($_POST['edit']))
   <form action="editloc.php"  method="post">
   <div class="form-group  row feilds ">
     <label class="col-sm-2" for="location" >Location</label>
-    <input class="form-control-plaintext col-sm-10 " type="text" name="location" id="location" placeholder="Enter Location" value="<?php if(isset($na)){ echo $na; } ?>" required>
+    <input class="form-control-plaintext col-sm-10 " type="text" name="location" id="location" pattern="^[a-zA-Z_]+( [a-zA-Z0-9_]+)*$" placeholder="Enter Location" value="<?php if(isset($na)){ echo $na; } ?>" required>
     </div>
     <div class="form-group  row feilds ">
     <label class="col-sm-2" for="distance">Distance</label>
@@ -49,13 +49,13 @@ if (isset($_POST['edit']))
     <div class="form-group   feilds ">
     <label  for="available">Make Available</label>
     <label  for="yes">YES</label>
-    <input class="" type="radio" name="available" id="available" value=1 <?php if(isset($ava)){ echo ($ava== 1) ?  "checked" : "" ;  }?>>
+    <input class="" type="radio" name="available" id="available" value=1 <?php if(isset($ava)){ echo ($ava== 1) ?  "checked" : "" ;  }?> required>
     <label  for="no">NO</label>
-    <input class="" type="radio" name="available" id="available" value=0 <?php if(isset($ava)){ echo ($ava== 0) ?  "checked" : "" ;  }?>>
+    <input class="" type="radio" name="available" id="available" value=0 <?php if(isset($ava)){ echo ($ava== 0) ?  "checked" : "" ;  }?> required> 
     </div>
     <input type="hidden" name="id" id="id" <?php if(isset($d)){ echo "value= ".$d; } ?>>
     <div class="form-group ">
-        <input type="submit" class="btn green btn-primary btn-lg btn-block" id="edit" name="edit" value="Edit Location">
+        <input type="submit" class="btn green btn-primary btn-lg btn-block" id="edit" name="edit" value="Save Location">
     </div>
     </form>
   </section>
